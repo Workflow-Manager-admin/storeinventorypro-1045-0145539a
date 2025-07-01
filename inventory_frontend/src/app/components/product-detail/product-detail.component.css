@@ -1,0 +1,83 @@
+:root {
+  --primary: #1976d2;
+  --accent: #ffca28;
+  --secondary: #424242;
+  --border-radius: 10px;
+}
+.product-detail h2 {
+  margin-top: 0;
+  color: var(--primary);
+}
+.summary {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem 2rem;
+  margin-bottom: 1rem;
+}
+.nodata {
+  color: #b0b0b0;
+}
+.low-stock {
+  color: #d32f2f;
+  font-weight: bold;
+}
+.actions {
+  margin-top: 0.75rem;
+  display: flex;
+  gap: 1rem;
+}
+.actions button {
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: var(--border-radius);
+  padding: 0.45rem 1.1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.actions button:hover {
+  background: var(--accent);
+  color: var(--secondary);
+}
+.stock-section {
+  margin-bottom: 1rem;
+}
+.stock-section input[type="number"] {
+  margin-left: 0.5rem;
+  width: 60px;
+}
+.stock-section input[type="text"] {
+  margin-left: 1rem;
+}
+.stock-section button {
+  margin-left: 0.5rem;
+  background: var(--accent);
+  color: var(--secondary);
+  border: none;
+  border-radius: var(--border-radius);
+  padding: 0.3rem 0.9rem;
+  font-weight: 500;
+}
+.stock-section button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.history-table {
+  width: 100%;
+  margin-top: 0.8rem;
+  border-collapse: collapse;
+}
+.history-table th, .history-table td {
+  border-bottom: 1px solid #f0f0f0;
+  padding: 0.4rem 0.45rem;
+  text-align: left;
+}
+.loading, .error {
+  margin: 1.2rem 0;
+  color: var(--secondary);
+}
+.error {
+  color: #d32f2f;
+  font-weight: bold;
+}

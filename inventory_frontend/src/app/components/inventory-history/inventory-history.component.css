@@ -1,0 +1,29 @@
+:root {
+  --primary: #1976d2;
+  --accent: #ffca28;
+  --secondary: #424242;
+  --border-radius: 8px;
+}
+.history-view h2 {
+  color: var(--primary);
+}
+.history-table {
+  border-collapse: collapse;
+  width: 100%;
+  background: #fff;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: 0 3px 12px 0 rgba(50,50,93,0.07);
+}
+.history-table th, .history-table td {
+  border-bottom: 1px solid #f0f0f0;
+  padding: 0.65rem 0.77rem;
+  text-align: left;
+}
+.loading, .error {
+  margin: 1.2rem 0;
+  font-size: 1.1rem;
+}
+.error {
+  color: #d32f2f;
+}

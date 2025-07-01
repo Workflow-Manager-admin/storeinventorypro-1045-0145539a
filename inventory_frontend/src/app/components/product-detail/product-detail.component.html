@@ -1,0 +1,53 @@
+<div *ngIf="loading" class="loading">Loading product...</div>
+<div *ngIf="!loading && product" class="product-detail">
+  <h2>{{ product.name }}</h2>
+  <div class="summary">
+    <div><b>Stock:</b> <span [ngClass]="{'low-stock': product.stock_level <= 2}">{{ product.stock_level }}</span></div>
+    <div><b>Category:</b> {{ product.category || '-' }}</div>
+    <div><b>Price:</b> {{ product.price | currency }}</div>
+    <div><b>Description:</b> <span *ngIf="product.description else noDesc">{{ product.description }}</span>
+      <ng-template #noDesc><span class="nodata">N/A</span></ng-template>
+    </div>
+    <div><b>Created:</b> {{ product.created_at | date:'medium' }}</div>
+    <div><b>Updated:</b> {{ product.updated_at | date:'medium' }}</div>
+  </div>
+  <div class="actions">
+    <button (click)="goToEdit()">Edit</button>
+    <button (click)="deleteProduct()" [disabled]="deleting">Delete</button>
+  </div>
+  <hr>
+  <div class="stock-section">
+    <label>
+      Change Stock:
+      <input type="number" [(ngModel)]="quantityToAdd" style="width:70px" />
+    </label>
+    <input type="text" [(ngModel)]="note" placeholder="Note (optional)" />
+    <button (click)="updateStock(quantityToAdd)" [disabled]="updatingStock || quantityToAdd===0">
+      Update
+    </button>
+  </div>
+  <div>
+    <button (click)="toggleHistory()">{{ showHistory ? 'Hide' : 'Show' }} Inventory History</button>
+    <div *ngIf="showHistory">
+      <table class="history-table">
+        <thead>
+        <tr>
+          <th>Time</th>
+          <th>Action</th>
+          <th>Quantity</th>
+          <th>Note</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let h of history">
+          <td>{{ h.timestamp | date:'short' }}</td>
+          <td>{{ h.action }}</td>
+          <td>{{ h.quantity }}</td>
+          <td>{{ h.note }}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="error" *ngIf="error">{{ error }}</div>
+</div>

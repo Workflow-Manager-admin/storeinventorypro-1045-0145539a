@@ -1,0 +1,31 @@
+<div class="product-form" *ngIf="!loading">
+  <h2>{{ isEdit ? 'Edit Product' : 'Add Product' }}</h2>
+  <form autocomplete="off" (ngSubmit)="save()">
+    <div class="form-row">
+      <label>Name</label>
+      <input type="text" [(ngModel)]="product.name" name="name" required />
+    </div>
+    <div class="form-row">
+      <label>Description</label>
+      <textarea [(ngModel)]="product.description" name="description"></textarea>
+    </div>
+    <div class="form-row">
+      <label>Category</label>
+      <input type="text" [(ngModel)]="product.category" name="category" />
+    </div>
+    <div class="form-row">
+      <label>Price</label>
+      <input type="number" [(ngModel)]="product.price" name="price" min="0" required />
+    </div>
+    <div class="form-row">
+      <label>Initial Stock</label>
+      <input type="number" [(ngModel)]="product.stock_level" name="stock_level" min="0" required [readonly]="isEdit"/>
+    </div>
+    <div class="actions">
+      <button type="submit" [disabled]="!product.name || saving">{{ isEdit ? 'Save' : 'Add' }}</button>
+      <button type="button" (click)="router.navigate(['/products'])">Cancel</button>
+    </div>
+    <div class="error" *ngIf="error">{{ error }}</div>
+  </form>
+</div>
+<div *ngIf="loading" class="loading">Loading...</div>

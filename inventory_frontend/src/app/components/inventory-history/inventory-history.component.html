@@ -1,0 +1,25 @@
+<div class="history-view">
+  <h2>Inventory History</h2>
+  <div *ngIf="loading" class="loading">Loading...</div>
+  <div *ngIf="error" class="error">{{ error }}</div>
+  <table *ngIf="!loading && !error" class="history-table">
+    <thead>
+      <tr>
+        <th>Time</th>
+        <th>Product</th>
+        <th>Action</th>
+        <th>Quantity</th>
+        <th>Note</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let h of history">
+        <td>{{ h.timestamp | date:'short' }}</td>
+        <td>{{ h.product_id }}</td>
+        <td>{{ h.action }}</td>
+        <td>{{ h.quantity }}</td>
+        <td>{{ h.note }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,1 +1,50 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --primary: #1976d2;
+  --accent: #ffca28;
+  --secondary: #424242;
+  --background: #f7f8fa;
+}
+html, body {
+  background: var(--background);
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  color: var(--secondary);
+}
+
+.app-container {
+  min-height: 100vh;
+  background: var(--background);
+}
+
+/* Sidebar and header - skeleton for layout */
+.sidebar {
+  width: 220px;
+  background: #fff;
+  min-height: 100vh;
+  padding: 1.5rem 1rem;
+  box-shadow: 2px 0 14px rgba(50, 50, 80, 0.045);
+  position: fixed;
+  left: 0; top: 0; bottom: 0;
+}
+.header {
+  width: 100%;
+  padding: 1.1rem 2rem;
+  background: #fff;
+  box-shadow: 0 1px 8px rgba(50, 50, 93, 0.05);
+}
+.main-content {
+  margin-left: 230px;
+  padding: 2rem;
+}
+
+/* Utility styles */
+a {
+  text-decoration: none;
+  color: var(--primary);
+  cursor: pointer;
+}
+
+button {
+  font-family: inherit;
+}
