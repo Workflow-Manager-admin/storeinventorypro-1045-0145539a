@@ -1,0 +1,59 @@
+
+> angular@0.0.0 start
+> ng serve  --no-hmr --disable-host-check --port 3000 --host 0.0.0.0
+
+Warning: Running a server with --disable-host-check is a security risk. See https://medium.com/webpack/webpack-dev-server-middleware-security-issues-1489d950874a for more information.
+The "disableHostCheck" option will not be used because it is not supported by the "@angular-devkit/build-angular:application" builder.
+❯ Building...
+✔ Building...
+Application bundle generation failed. [2.462 seconds]
+
+✘ [ERROR] NG9: Property 'router' does not exist on type 'ProductFormComponent'. [plugin angular-compiler]
+
+    src/app/components/product-form/product-form.component.html:26:37:
+      26 │ ...utton type="button" (click)="router.navigate(['/products'])">Ca...
+         ╵                                 ~~~~~~
+
+  Error occurs in the template of component ProductFormComponent.
+
+    src/app/components/product-form/product-form.component.ts:9:15:
+      9 │   templateUrl: './product-form.component.html',
+        ╵                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+✘ [ERROR] TS2339: Property 'route' does not exist on type 'ProductFormComponent'. [plugin angular-compiler]
+
+    src/app/components/product-form/product-form.component.ts:30:25:
+      30 │     const idParam = this.route.snapshot.paramMap.get('id');
+         ╵                          ~~~~~
+
+
+✘ [ERROR] TS2339: Property 'api' does not exist on type 'ProductFormComponent'. [plugin angular-compiler]
+
+    src/app/components/product-form/product-form.component.ts:34:11:
+      34 │       this.api.getProduct(+idParam).subscribe({
+         ╵            ~~~
+
+
+✘ [ERROR] TS2339: Property 'api' does not exist on type 'ProductFormComponent'. [plugin angular-compiler]
+
+    src/app/components/product-form/product-form.component.ts:51:13:
+      51 │       ? this.api.updateProduct(this.product.id, this.product)
+         ╵              ~~~
+
+
+✘ [ERROR] TS2339: Property 'api' does not exist on type 'ProductFormComponent'. [plugin angular-compiler]
+
+    src/app/components/product-form/product-form.component.ts:52:13:
+      52 │       : this.api.addProduct(this.product);
+         ╵              ~~~
+
+
+✘ [ERROR] TS2339: Property 'router' does not exist on type 'ProductFormComponent'. [plugin angular-compiler]
+
+    src/app/components/product-form/product-form.component.ts:57:13:
+      57 │         this.router.navigate(['/products', res.id]);
+         ╵              ~~~~~~
+
+
+Watch mode enabled. Watching for file changes...
